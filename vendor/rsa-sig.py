@@ -15,10 +15,10 @@ uh = int.from_bytes(sha256((ver + uboot).encode()).digest(), byteorder='big')
 '''
 keyPair = RSA.generate(bits=2048)
 prikey = hex(keyPair.d) + ':' + hex(keyPair.n)
-with open('prikey', 'w') as fp:
+with open('RSA_Pri', 'w') as fp:
     fp.write(prikey)
 pubkey = hex(keyPair.e) + ':' + hex(keyPair.n)
-with open('pubkey', 'w') as fp:
+with open('RSA_Pub', 'w') as fp:
     fp.write(pubkey)
 signature = pow(uh, keyPair.d, keyPair.n)
 '''
